@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Fuel | 特許技術の燃焼促進剤</title>
+    <title>Change Fuel | Next-Gen Combustion Improver</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;800&display=swap');
         body {
-            font-family: 'Noto Sans JP', sans-serif;
+            font-family: 'Inter', sans-serif;
             padding-bottom: 80px; /* Space for engagement bar */
         }
-        body.lang-en {
-            font-family: 'Inter', sans-serif;
+        body.lang-jp {
+            font-family: 'Noto Sans JP', sans-serif;
         }
         .hero-bg {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
@@ -50,7 +50,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased">
+<body class="bg-gray-50 text-gray-800 antialiased lang-en">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
@@ -61,25 +61,25 @@
                     <span class="font-bold text-2xl tracking-tighter text-gray-900">Change<span class="text-green-600">Fuel</span></span>
                 </div>
                 <div class="hidden lg:flex space-x-6 items-center">
-                    <a href="#features" class="text-gray-600 hover:text-green-600 font-medium transition text-sm" data-i18n="nav_features">特徴</a>
-                    <a href="#mechanism" class="text-gray-600 hover:text-green-600 font-medium transition text-sm" data-i18n="nav_mechanism">メカニズム</a>
-                    <a href="#verification" class="text-gray-600 hover:text-green-600 font-medium transition text-sm" data-i18n="nav_verification">検証データ</a>
-                    <a href="#youtube" class="text-gray-600 hover:text-green-600 font-medium transition text-sm" data-i18n="nav_youtube">動画</a>
-                    <a href="#testimonials" class="text-gray-600 hover:text-green-600 font-medium transition text-sm" data-i18n="nav_testimonials">お客様の声</a>
-                    <a href="#simulation" class="text-gray-600 hover:text-green-600 font-medium transition text-sm" data-i18n="nav_simulation">コスト削減</a>
-                    <a href="#products" class="text-gray-600 hover:text-green-600 font-medium transition text-sm" data-i18n="nav_products">製品一覧</a>
+                    <a href="#features" class="text-gray-600 hover:text-green-600 font-medium transition text-sm" data-i18n="nav_features">Features</a>
+                    <a href="#mechanism" class="text-gray-600 hover:text-green-600 font-medium transition text-sm" data-i18n="nav_mechanism">Technology</a>
+                    <a href="#verification" class="text-gray-600 hover:text-green-600 font-medium transition text-sm" data-i18n="nav_verification">Data</a>
+                    <a href="#youtube" class="text-gray-600 hover:text-green-600 font-medium transition text-sm" data-i18n="nav_youtube">Videos</a>
+                    <a href="#testimonials" class="text-gray-600 hover:text-green-600 font-medium transition text-sm" data-i18n="nav_testimonials">Testimonials</a>
+                    <a href="#simulation" class="text-gray-600 hover:text-green-600 font-medium transition text-sm" data-i18n="nav_simulation">Savings</a>
+                    <a href="#products" class="text-gray-600 hover:text-green-600 font-medium transition text-sm" data-i18n="nav_products">Products</a>
                     <a href="#contact" class="bg-green-600 text-white px-5 py-2 rounded-full font-bold hover:bg-green-700 transition shadow-lg transform hover:-translate-y-0.5 text-sm" data-i18n="nav_contact">
-                        お問い合わせ
+                        Contact
                     </a>
                     <!-- Language Switcher -->
                     <button onclick="toggleLanguage()" class="flex items-center gap-1 text-gray-500 hover:text-gray-900 font-bold border border-gray-300 px-3 py-1 rounded-md text-sm transition">
-                        <i class="fas fa-globe"></i> <span id="lang-label">EN</span>
+                        <i class="fas fa-globe"></i> <span id="lang-label">JP</span>
                     </button>
                 </div>
                 <!-- Mobile menu button -->
                 <div class="lg:hidden flex items-center gap-4">
                     <button onclick="toggleLanguage()" class="flex items-center gap-1 text-gray-500 hover:text-gray-900 font-bold border border-gray-300 px-3 py-1 rounded-md text-sm transition">
-                        <span id="lang-label-mobile">EN</span>
+                        <span id="lang-label-mobile">JP</span>
                     </button>
                     <button class="mobile-menu-button outline-none">
                         <i class="fas fa-bars text-2xl text-gray-600"></i>
@@ -89,14 +89,14 @@
         </div>
         <!-- Mobile Menu -->
         <div class="hidden mobile-menu lg:hidden bg-white border-t p-4">
-            <a href="#features" class="block py-2 text-gray-600 hover:text-green-600 font-medium" data-i18n="nav_features">特徴</a>
-            <a href="#mechanism" class="block py-2 text-gray-600 hover:text-green-600 font-medium" data-i18n="nav_mechanism">メカニズム</a>
-            <a href="#verification" class="block py-2 text-gray-600 hover:text-green-600 font-medium" data-i18n="nav_verification">検証データ</a>
-            <a href="#youtube" class="block py-2 text-gray-600 hover:text-green-600 font-medium" data-i18n="nav_youtube">動画</a>
-            <a href="#testimonials" class="block py-2 text-gray-600 hover:text-green-600 font-medium" data-i18n="nav_testimonials">お客様の声</a>
-            <a href="#simulation" class="block py-2 text-gray-600 hover:text-green-600 font-medium" data-i18n="nav_simulation">コスト削減</a>
-            <a href="#products" class="block py-2 text-gray-600 hover:text-green-600 font-medium" data-i18n="nav_products">製品一覧</a>
-            <a href="#contact" class="block mt-4 text-center bg-green-600 text-white px-6 py-2 rounded-full font-bold" data-i18n="nav_contact">お問い合わせ</a>
+            <a href="#features" class="block py-2 text-gray-600 hover:text-green-600 font-medium" data-i18n="nav_features">Features</a>
+            <a href="#mechanism" class="block py-2 text-gray-600 hover:text-green-600 font-medium" data-i18n="nav_mechanism">Technology</a>
+            <a href="#verification" class="block py-2 text-gray-600 hover:text-green-600 font-medium" data-i18n="nav_verification">Data</a>
+            <a href="#youtube" class="block py-2 text-gray-600 hover:text-green-600 font-medium" data-i18n="nav_youtube">Videos</a>
+            <a href="#testimonials" class="block py-2 text-gray-600 hover:text-green-600 font-medium" data-i18n="nav_testimonials">Testimonials</a>
+            <a href="#simulation" class="block py-2 text-gray-600 hover:text-green-600 font-medium" data-i18n="nav_simulation">Savings</a>
+            <a href="#products" class="block py-2 text-gray-600 hover:text-green-600 font-medium" data-i18n="nav_products">Products</a>
+            <a href="#contact" class="block mt-4 text-center bg-green-600 text-white px-6 py-2 rounded-full font-bold" data-i18n="nav_contact">Contact</a>
         </div>
     </nav>
 
@@ -106,14 +106,14 @@
             <div class="hidden md:flex items-center gap-2">
                 <i class="fas fa-leaf text-green-500 text-xl"></i>
                 <span class="font-bold text-gray-900">Change<span class="text-green-600">Fuel</span></span>
-                <span class="text-sm text-gray-500 ml-2 border-l pl-2 border-gray-300" data-i18n="eb_slogan">燃費向上・コスト削減の決定版</span>
+                <span class="text-sm text-gray-500 ml-2 border-l pl-2 border-gray-300" data-i18n="eb_slogan">The Definitive Solution for Fuel Efficiency</span>
             </div>
             <div class="flex w-full md:w-auto gap-2">
                 <a href="#verification" class="flex-1 md:flex-none bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 px-4 rounded-lg text-center transition duration-200 text-sm flex items-center justify-center gap-2">
-                    <i class="fas fa-file-pdf text-gray-600"></i> <span data-i18n="eb_dl">資料を見る</span>
+                    <i class="fas fa-file-pdf text-gray-600"></i> <span data-i18n="eb_dl">See Reports</span>
                 </a>
                 <a href="#contact" class="flex-1 md:flex-none bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-6 rounded-lg text-center transition duration-200 text-sm flex items-center justify-center gap-2 shadow-md">
-                    <i class="fas fa-envelope"></i> <span data-i18n="eb_contact">お問い合わせ</span>
+                    <i class="fas fa-envelope"></i> <span data-i18n="eb_contact">Contact Us</span>
                 </a>
             </div>
         </div>
@@ -124,23 +124,23 @@
         <div class="max-w-5xl mx-auto space-y-8 animate-fade-in-up">
             <div class="inline-block bg-green-500/20 backdrop-blur-sm border border-green-400/30 rounded-full px-4 py-1.5 mb-4">
                 <span class="text-green-300 font-semibold tracking-wide uppercase text-sm">
-                    <i class="fas fa-check-circle mr-2"></i><span data-i18n="hero_badge">特許技術取得済み</span>
+                    <i class="fas fa-check-circle mr-2"></i><span data-i18n="hero_badge">Patented Technology</span>
                 </span>
             </div>
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-                <span data-i18n="hero_title_1">燃料コストを削減し、</span><br class="hidden md:block" />
-                <span class="text-green-400" data-i18n="hero_title_highlight">地球の未来</span><span data-i18n="hero_title_2">を変える。</span>
+                <span data-i18n="hero_title_1">Reduce Fuel Costs,</span><br class="hidden md:block" />
+                <span class="text-green-400" data-i18n="hero_title_highlight">Save the Future</span><span data-i18n="hero_title_2"> of our Planet.</span>
             </h1>
             <p class="text-lg md:text-2xl text-gray-200 max-w-3xl mx-auto font-light" data-i18n="hero_desc">
-                入れるだけで燃費向上・出力アップ・CO2削減を実現する<br class="hidden md:block" />
-                次世代の燃焼促進剤「Change Fuel」
+                Simply add to fuel to improve mileage, boost power, and reduce CO2.<br class="hidden md:block" />
+                The next-generation fuel additive "Change Fuel".
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center pt-8">
                 <a href="#simulation" class="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-4 rounded-full font-bold transition transform hover:scale-105 shadow-xl flex items-center justify-center gap-2">
-                    <i class="fas fa-calculator"></i> <span data-i18n="hero_btn_sim">削減シミュレーション</span>
+                    <i class="fas fa-calculator"></i> <span data-i18n="hero_btn_sim">Cost Simulation</span>
                 </a>
                 <a href="#verification" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white text-lg px-8 py-4 rounded-full font-bold transition flex items-center justify-center gap-2">
-                    <i class="fas fa-chart-line"></i> <span data-i18n="hero_btn_data">検証データを見る</span>
+                    <i class="fas fa-chart-line"></i> <span data-i18n="hero_btn_data">See Performance Data</span>
                 </a>
             </div>
         </div>
@@ -154,19 +154,19 @@
     <section class="py-10 bg-white border-b border-gray-100 relative overflow-hidden" id="features">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-100">
             <div class="p-4">
-                <p class="text-gray-500 text-sm font-bold uppercase tracking-wider mb-1" data-i18n="stat_fuel">燃費向上</p>
+                <p class="text-gray-500 text-sm font-bold uppercase tracking-wider mb-1" data-i18n="stat_fuel">Better MPG</p>
                 <p class="text-4xl md:text-5xl font-black text-gray-900">~20<span class="text-2xl text-green-500">%</span></p>
             </div>
             <div class="p-4">
-                <p class="text-gray-500 text-sm font-bold uppercase tracking-wider mb-1" data-i18n="stat_nox">PM/NOx削減</p>
+                <p class="text-gray-500 text-sm font-bold uppercase tracking-wider mb-1" data-i18n="stat_nox">PM/NOx Cut</p>
                 <p class="text-4xl md:text-5xl font-black text-gray-900">~90<span class="text-2xl text-green-500">%</span></p>
             </div>
             <div class="p-4">
-                <p class="text-gray-500 text-sm font-bold uppercase tracking-wider mb-1" data-i18n="stat_co2">CO2削減</p>
+                <p class="text-gray-500 text-sm font-bold uppercase tracking-wider mb-1" data-i18n="stat_co2">CO2 Cut</p>
                 <p class="text-4xl md:text-5xl font-black text-gray-900">~20<span class="text-2xl text-green-500">%</span></p>
             </div>
             <div class="p-4">
-                <p class="text-gray-500 text-sm font-bold uppercase tracking-wider mb-1" data-i18n="stat_add">添加量</p>
+                <p class="text-gray-500 text-sm font-bold uppercase tracking-wider mb-1" data-i18n="stat_add">Add Only</p>
                 <p class="text-4xl md:text-5xl font-black text-gray-900">0.01<span class="text-2xl text-green-500">%</span></p>
             </div>
         </div>
@@ -177,9 +177,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
-                    <span data-i18n="prob_title_1">こんな</span><span class="text-red-500" data-i18n="prob_title_highlight">お悩み</span><span data-i18n="prob_title_2">ありませんか？</span>
+                    <span data-i18n="prob_title_1">Are you facing</span><span class="text-red-500" data-i18n="prob_title_highlight"> these issues</span><span data-i18n="prob_title_2">?</span>
                 </h2>
-                <p class="mt-4 text-xl text-gray-500" data-i18n="prob_desc">燃料価格の高騰や環境規制への対応にお困りの事業者様へ</p>
+                <p class="mt-4 text-xl text-gray-500" data-i18n="prob_desc">For businesses struggling with rising fuel prices and environmental regulations.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 mb-16">
@@ -191,8 +191,8 @@
                     <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-6 text-red-600">
                         <i class="fas fa-yen-sign text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="prob_1_title">燃料コストが経営を圧迫</h3>
-                    <p class="text-gray-600" data-i18n="prob_1_desc">ガソリン・軽油価格の高騰により、運送コストや製造コストが年々増加している。</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="prob_1_title">Rising Fuel Costs</h3>
+                    <p class="text-gray-600" data-i18n="prob_1_desc">Increasing gasoline and diesel prices are squeezing operating profits year by year.</p>
                 </div>
                 <!-- Problem 2 -->
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden">
@@ -202,8 +202,8 @@
                     <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6 text-gray-600">
                         <i class="fas fa-industry text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="prob_2_title">環境規制への対応</h3>
-                    <p class="text-gray-600" data-i18n="prob_2_desc">CO2排出量の削減や、NOx/PM対策が求められているが、設備投資にかける予算がない。</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="prob_2_title">Environmental Regulations</h3>
+                    <p class="text-gray-600" data-i18n="prob_2_desc">Pressure to reduce CO2/NOx emissions is high, but budget for new equipment is limited.</p>
                 </div>
                 <!-- Problem 3 -->
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden">
@@ -213,8 +213,8 @@
                     <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-6 text-orange-600">
                         <i class="fas fa-wrench text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="prob_3_title">エンジントラブル</h3>
-                    <p class="text-gray-600" data-i18n="prob_3_desc">インジェクターの詰まりやDPFの不調により、メンテナンス費用や車両のダウンタイムが発生している。</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="prob_3_title">Engine Troubles</h3>
+                    <p class="text-gray-600" data-i18n="prob_3_desc">Injector clogging and DPF issues causing maintenance costs and vehicle downtime.</p>
                 </div>
             </div>
             
@@ -222,7 +222,7 @@
                 <div class="inline-flex flex-col items-center">
                     <i class="fas fa-arrow-down text-4xl text-green-500 animate-bounce mb-4"></i>
                     <h3 class="text-3xl md:text-5xl font-black text-gray-900">
-                        <span class="gradient-text">Change Fuel</span> <span data-i18n="prob_solve">がすべて解決します</span>
+                        <span class="gradient-text">Change Fuel</span> <span data-i18n="prob_solve">solves them all.</span>
                     </h3>
                 </div>
             </div>
@@ -240,8 +240,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
                 <span class="text-green-400 font-bold tracking-wider uppercase text-sm" data-i18n="verif_badge">Performance Data</span>
-                <h2 class="text-3xl md:text-4xl font-bold mt-2" data-i18n="verif_title">実証された確かな効果</h2>
-                <p class="text-gray-400 mt-4 max-w-2xl mx-auto" data-i18n="verif_desc">第三者機関や実際の現場で検証されたデータが、Change Fuelの性能を証明しています。</p>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2" data-i18n="verif_title">Proven Results</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto" data-i18n="verif_desc">Data verified by third-party institutions and field tests prove the performance of Change Fuel.</p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12 mb-16">
@@ -249,18 +249,18 @@
                 <div class="bg-gray-800 rounded-2xl p-6 border border-gray-700 shadow-xl">
                     <h3 class="text-xl font-bold mb-4 flex items-center">
                         <i class="fas fa-chart-bar text-green-500 mr-2"></i>
-                        <span data-i18n="verif_nox_title">NOx（窒素酸化物）削減効果</span>
+                        <span data-i18n="verif_nox_title">NOx Reduction Effect</span>
                     </h3>
                     <div class="bg-gray-900 rounded-xl p-4 mb-4">
                         <canvas id="noxChart" height="200"></canvas>
                     </div>
                     <p class="text-sm text-gray-400 mb-2">
-                        <span class="font-bold text-white">日野製4tトラック（アドブルー搭載車）</span>での検証結果。<br>
-                        すでに浄化装置がついている車両でも、さらに<span class="text-green-400 font-bold">50%以上の削減</span>を確認。
+                        <span class="font-bold text-white" data-i18n="verif_nox_desc_1">Verification results using a Hino 4t truck (AdBlue equipped).</span><br>
+                        <span data-i18n="verif_nox_desc_2">Confirmed reduction of over 50% even in vehicles with existing purification systems.</span>
                     </p>
                     <div class="flex justify-between text-xs text-gray-500 border-t border-gray-700 pt-2 mt-2">
-                        <span>光吸収係数(m⁻¹)による測定</span>
-                        <span>0.025 &rarr; 0.011 (平均値)</span>
+                        <span data-i18n="verif_nox_measurement">Measured by light absorption coefficient (m⁻¹)</span>
+                        <span data-i18n="verif_nox_value">0.025 &rarr; 0.011 (Average)</span>
                     </div>
                 </div>
 
@@ -268,16 +268,16 @@
                 <div class="bg-gray-800 rounded-2xl p-6 border border-gray-700 shadow-xl flex flex-col">
                     <h3 class="text-xl font-bold mb-4 flex items-center">
                         <i class="fas fa-tachometer-alt text-blue-500 mr-2"></i>
-                        <span data-i18n="verif_eff_title">燃費向上実績（抜粋）</span>
+                        <span data-i18n="verif_eff_title">Fuel Efficiency Improvements (Excerpt)</span>
                     </h3>
                     <div class="flex-1 overflow-y-auto max-h-[300px] pr-2 custom-scrollbar">
                         <table class="w-full text-left text-sm" id="fuel-table">
                             <thead class="text-gray-400 border-b border-gray-700 sticky top-0 bg-gray-800">
                                 <tr>
-                                    <th class="pb-2 font-medium" data-i18n="table_model">車種</th>
-                                    <th class="pb-2 font-medium text-right" data-i18n="table_before">添加前</th>
-                                    <th class="pb-2 font-medium text-right" data-i18n="table_after">添加後</th>
-                                    <th class="pb-2 font-medium text-right text-green-400" data-i18n="table_imp">向上率</th>
+                                    <th class="pb-2 font-medium" data-i18n="table_model">Vehicle Model</th>
+                                    <th class="pb-2 font-medium text-right" data-i18n="table_before">Before</th>
+                                    <th class="pb-2 font-medium text-right" data-i18n="table_after">After</th>
+                                    <th class="pb-2 font-medium text-right text-green-400" data-i18n="table_imp">Improvement</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-700" id="fuel-table-body">
@@ -285,7 +285,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <p class="text-xs text-gray-500 mt-4 text-center" data-i18n="verif_eff_note">※ 単位はkm/L（建機は8時間あたりの消費量）。実証実験データより抜粋。</p>
+                    <p class="text-xs text-gray-500 mt-4 text-center" data-i18n="verif_eff_note">* Units in km/L (consumption per 8h for heavy machinery). Excerpt from field test data.</p>
                 </div>
             </div>
 
@@ -294,16 +294,16 @@
                  <div class="absolute top-0 right-0 p-4 opacity-10 transform rotate-12">
                     <i class="fas fa-file-pdf text-8xl text-white"></i>
                 </div>
-                <h3 class="text-2xl font-bold mb-4" data-i18n="dl_title">詳細な検証レポートを公開中</h3>
+                <h3 class="text-2xl font-bold mb-4" data-i18n="dl_title">Download Detailed Reports</h3>
                 <p class="text-gray-300 mb-8 max-w-2xl mx-auto" data-i18n="dl_desc">
-                    CO・HC・NOx・PM削減の検証結果詳細や、より多くの車種での燃費向上データ、メカニズムの解説資料をご覧いただけます。
+                    View detailed verification results for CO, HC, NOx, and PM reduction, fuel efficiency data for more vehicle models, and technical explanations.
                 </p>
                 <div class="flex flex-col md:flex-row justify-center gap-4 flex-wrap">
                     <a href="#" id="dl-btn-1" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-bold transition flex items-center justify-center gap-2 group w-full md:w-auto" target="_blank">
-                        <i class="fas fa-eye group-hover:scale-110 transition-transform"></i> <span data-i18n="dl_btn_1">検証結果データ(JP)</span>
+                        <i class="fas fa-eye group-hover:scale-110 transition-transform"></i> <span data-i18n="dl_btn_1">Verification Data (JP)</span>
                     </a>
                     <a href="#" id="dl-btn-2" class="bg-gray-600 hover:bg-gray-500 text-white px-6 py-3 rounded-full font-bold transition flex items-center justify-center gap-2 group w-full md:w-auto" target="_blank">
-                        <i class="fas fa-eye group-hover:scale-110 transition-transform"></i> <span data-i18n="dl_btn_2">製品説明資料(JP)</span>
+                        <i class="fas fa-eye group-hover:scale-110 transition-transform"></i> <span data-i18n="dl_btn_2">Product Guide (JP)</span>
                     </a>
                     <a href="#" id="dl-btn-3" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-full font-bold transition flex items-center justify-center gap-2 group w-full md:w-auto" target="_blank">
                         <i class="fas fa-eye group-hover:scale-110 transition-transform"></i> <span data-i18n="dl_btn_3">English Guide (EN)</span>
@@ -317,10 +317,10 @@
     <section class="py-16 bg-red-600 text-white text-center" id="youtube">
         <div class="max-w-4xl mx-auto px-4">
             <i class="fab fa-youtube text-6xl mb-4"></i>
-            <h2 class="text-3xl font-bold mb-4" data-i18n="yt_title">公式YouTubeチャンネル</h2>
-            <p class="text-lg mb-8 opacity-90" data-i18n="yt_desc">黒煙除去の瞬間や、エンジン音の変化など、実際の検証動画を多数公開しています。</p>
+            <h2 class="text-3xl font-bold mb-4" data-i18n="yt_title">Official YouTube Channel</h2>
+            <p class="text-lg mb-8 opacity-90" data-i18n="yt_desc">We upload verification videos of CO/HC reduction, engine sound comparison, and more.</p>
             <a href="https://www.youtube.com/@alphsfun" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-red-600 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 shadow-lg transform hover:-translate-y-1">
-                <span data-i18n="yt_btn">チャンネルを見る</span> <i class="fas fa-external-link-alt ml-2"></i>
+                <span data-i18n="yt_btn">Visit Channel</span> <i class="fas fa-external-link-alt ml-2"></i>
             </a>
         </div>
     </section>
@@ -329,8 +329,8 @@
     <section id="testimonials" class="py-20 bg-white border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-900" data-i18n="tm_title">お客様の声</h2>
-                <p class="mt-4 text-gray-600" data-i18n="tm_desc">実際に導入いただいたお客様からの反応をご紹介します。</p>
+                <h2 class="text-3xl font-bold text-gray-900" data-i18n="tm_title">Testimonials</h2>
+                <p class="mt-4 text-gray-600" data-i18n="tm_desc">Hear what our customers have to say about Change Fuel.</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
@@ -348,10 +348,10 @@
                             </div>
                         </div>
                         <p class="text-gray-600 text-sm leading-relaxed" data-i18n="tm_1_text">
-                            新車のポルシェ マカンに使用しました。約1,000km走行後、燃費が7.8km/Lから9.8km/Lに向上しました。25.6%という驚異的な改善値です。この添加剤は本当にすごいです！
+                            I used it on my new Porsche Macan. After driving about 1,000 km, my fuel consumption improved from 7.8km/L to 9.8km/L. That's an astonishing 25.6% improvement. This additive is truly amazing!
                         </p>
                         <div class="mt-4 text-green-600 font-bold text-sm">
-                            <i class="fas fa-arrow-up"></i> 25.6% <span data-i18n="tm_improved">向上</span>
+                            <i class="fas fa-arrow-up"></i> 25.6% <span data-i18n="tm_improved">Improved</span>
                         </div>
                     </div>
                 </div>
@@ -370,10 +370,10 @@
                             </div>
                         </div>
                         <p class="text-gray-600 text-sm leading-relaxed" data-i18n="tm_2_text">
-                            急勾配のカーブもギアチェンジなしで登り切れるようになり、トルクアップを実感しました。燃費も12.7から16に向上。燃焼効率が上がっているのがはっきりと分かります。
+                            I was able to climb steep corners without changing gears, and I could feel the increased torque. Fuel economy also improved from 12.7 to 16. The improved combustion efficiency is clear.
                         </p>
                         <div class="mt-4 text-green-600 font-bold text-sm">
-                            <i class="fas fa-arrow-up"></i> 25% <span data-i18n="tm_improved">向上</span>
+                            <i class="fas fa-arrow-up"></i> 25% <span data-i18n="tm_improved">Improved</span>
                         </div>
                     </div>
                 </div>
@@ -392,10 +392,10 @@
                             </div>
                         </div>
                         <p class="text-gray-600 text-sm leading-relaxed" data-i18n="tm_3_text">
-                            通常20分かかるDPF（排ガス浄化装置）の燃焼時間が、わずか2-3分で終了するようになりました。PMの堆積量が明らかに減っている証拠です。
+                            The DPF soot burning time, which usually takes 20 minutes, now finishes in just 2-3 minutes. This is proof that PM accumulation has been significantly reduced.
                         </p>
                         <div class="mt-4 text-green-600 font-bold text-sm">
-                            <i class="fas fa-clock"></i> <span data-i18n="tm_3_result">DPF時間 大幅短縮</span>
+                            <i class="fas fa-clock"></i> <span data-i18n="tm_3_result">Drastic DPF Time Reduction</span>
                         </div>
                     </div>
                 </div>
@@ -410,27 +410,26 @@
                 <div>
                     <span class="text-green-600 font-bold tracking-wider uppercase text-sm">Mechanism</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                        <span data-i18n="mech_title_1">特許技術による</span><br>
-                        「<span data-i18n="mech_title_2">水分の超微粒子化</span>」
+                        <span data-i18n="mech_title_1">Patented Technology:</span><br>
+                        「<span data-i18n="mech_title_2">Ultrafine Water Particles</span>」
                     </h2>
                     <p class="text-gray-600 text-lg leading-relaxed mb-6" data-i18n="mech_desc">
-                        Change Fuelは、燃料に含まれる水分をナノレベルまで超微粒子化する特許技術を採用しています。
-                        この微細化された水分が、燃焼時に「水蒸気爆発」を起こすことで、燃料粒子をさらに細かく粉砕します。
+                        Change Fuel turns water particles in fuel into ultrafine particles wrapped in fuel particles using patented technology. This micro-water causes a "vaporization explosion" during combustion, further pulverizing fuel particles.
                     </p>
                     
                     <ul class="space-y-4">
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-green-500 mt-1 mr-3 text-lg"></i>
                             <div>
-                                <strong class="block text-gray-900 text-lg" data-i18n="mech_point_1_title">酸素との接触面積が最大化</strong>
-                                <span class="text-gray-500" data-i18n="mech_point_1_desc">燃料が細かくなることで酸素と混ざりやすくなり、完全燃焼に近づきます。</span>
+                                <strong class="block text-gray-900 text-lg" data-i18n="mech_point_1_title">Maximized Oxygen Contact</strong>
+                                <span class="text-gray-500" data-i18n="mech_point_1_desc">Finer fuel particles mix better with oxygen, leading to near-complete combustion.</span>
                             </div>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-green-500 mt-1 mr-3 text-lg"></i>
                             <div>
-                                <strong class="block text-gray-900 text-lg" data-i18n="mech_point_2_title">ワニス（汚れ）の除去</strong>
-                                <span class="text-gray-500" data-i18n="mech_point_2_desc">インジェクターやエンジン内部に付着するワニス汚れを分解・除去し、新車時の性能を取り戻します。</span>
+                                <strong class="block text-gray-900 text-lg" data-i18n="mech_point_2_title">Varnish Removal</strong>
+                                <span class="text-gray-500" data-i18n="mech_point_2_desc">Decomposes and removes varnish deposits in injectors/engines, restoring factory performance.</span>
                             </div>
                         </li>
                     </ul>
@@ -441,24 +440,24 @@
                         <div class="flex flex-col gap-8">
                             <!-- Before State -->
                             <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 relative overflow-hidden">
-                                <span class="absolute top-0 right-0 bg-gray-200 text-gray-600 text-xs font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider" data-i18n="visual_before">通常の状態</span>
+                                <span class="absolute top-0 right-0 bg-gray-200 text-gray-600 text-xs font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider" data-i18n="visual_before">Before</span>
                                 <div class="flex items-center justify-center gap-8 py-4">
                                     <!-- Fuel Particle -->
                                     <div class="flex flex-col items-center gap-2">
                                         <div class="w-16 h-16 rounded-full bg-yellow-400 shadow-md flex items-center justify-center border-4 border-yellow-300">
-                                            <span class="text-xs font-bold text-yellow-800 opacity-50">Fuel</span>
+                                            <span class="text-xs font-bold text-yellow-800 opacity-50" data-i18n="mech_visual_fuel_inner">Fuel</span>
                                         </div>
-                                        <span class="text-xs text-gray-500 font-bold">燃料</span>
+                                        <span class="text-xs text-gray-500 font-bold" data-i18n="mech_visual_fuel">Fuel</span>
                                     </div>
                                     <!-- Water Particle (Separated) -->
                                     <div class="flex flex-col items-center gap-2">
                                         <div class="w-12 h-12 rounded-full bg-blue-500 shadow-md flex items-center justify-center border-4 border-blue-400 animate-pulse">
                                             <span class="text-xs font-bold text-white">H2O</span>
                                         </div>
-                                        <span class="text-xs text-red-500 font-bold">水分(大)</span>
+                                        <span class="text-xs text-red-500 font-bold" data-i18n="mech_visual_water_large">Water (Large)</span>
                                     </div>
                                 </div>
-                                <p class="text-sm text-gray-600 text-center mt-2 font-medium" data-i18n="visual_before_desc">水分が分離・肥大化し、不完全燃焼の原因に</p>
+                                <p class="text-sm text-gray-600 text-center mt-2 font-medium" data-i18n="visual_before_desc">Large water particles cause incomplete combustion.</p>
                             </div>
                             
                             <!-- Arrow -->
@@ -470,13 +469,13 @@
 
                             <!-- After State -->
                             <div class="bg-green-50 rounded-xl p-6 border border-green-200 relative overflow-hidden">
-                                <span class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider" data-i18n="visual_after">Change Fuel 添加後</span>
+                                <span class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider" data-i18n="visual_after">With Change Fuel</span>
                                 <div class="flex items-center justify-center py-6">
                                     <!-- Integrated Particle -->
                                     <div class="relative w-28 h-28">
                                         <!-- Main Fuel Particle -->
                                         <div class="absolute inset-0 bg-yellow-400 rounded-full shadow-lg border-4 border-yellow-300 flex items-center justify-center">
-                                            <span class="text-sm font-bold text-yellow-800 opacity-30">Fuel</span>
+                                            <span class="text-sm font-bold text-yellow-800 opacity-30" data-i18n="mech_visual_fuel_inner">Fuel</span>
                                         </div>
                                         <!-- Micro Water Particles Inside -->
                                         <div class="absolute top-1/4 left-1/4 w-4 h-4 bg-blue-500 rounded-full border-2 border-white shadow-sm animate-bounce" style="animation-delay: 0.1s"></div>
@@ -490,9 +489,9 @@
                                 </div>
                                 <div class="text-center">
                                     <p class="text-green-700 font-bold text-lg mb-1">
-                                        <i class="fas fa-atom mr-2"></i>水分を包み込み超微細化
+                                        <i class="fas fa-atom mr-2"></i><span data-i18n="mech_visual_result">Encapsulates water for ultra-atomization</span>
                                     </p>
-                                    <p class="text-xs text-gray-600 font-medium" data-i18n="visual_after_desc">気化爆発により燃料を微細化し、完全燃焼へ導く</p>
+                                    <p class="text-xs text-gray-600 font-medium" data-i18n="visual_after_desc">Nano-water + Vaporization Explosion = Complete Combustion.</p>
                                 </div>
                             </div>
                         </div>
@@ -507,26 +506,26 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <span class="text-green-400 font-bold tracking-wider uppercase text-sm">Cost Simulation</span>
-                <h2 class="text-3xl md:text-4xl font-bold mt-2" data-i18n="sim_title">驚きのコスト削減効果</h2>
-                <p class="text-gray-400 mt-4" data-i18n="sim_subtitle">大型トラック（年間10万km走行）の場合のシミュレーション</p>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2" data-i18n="sim_title">Amazing Cost Reduction</h2>
+                <p class="text-gray-400 mt-4" data-i18n="sim_subtitle">Simulation for a heavy-duty truck (100,000 km/year)</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 <!-- Before -->
                 <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 shadow-sm opacity-90">
-                    <h3 class="text-xl font-bold text-gray-400 mb-6" data-i18n="sim_before">導入前</h3>
+                    <h3 class="text-xl font-bold text-gray-400 mb-6" data-i18n="sim_before">Before</h3>
                     <div class="space-y-4">
                         <div class="flex justify-between items-end border-b border-gray-700 pb-2">
-                            <span data-i18n="sim_fuel_cost">年間燃料費</span>
-                            <span class="text-2xl font-mono">¥4,285,714</span>
+                            <span data-i18n="sim_fuel_cost">Annual Fuel Cost</span>
+                            <span class="text-2xl font-mono" data-i18n="sim_val_fuel_before">¥4,285,714 (PKR 7,714,285)</span>
                         </div>
                         <div class="flex justify-between items-end border-b border-gray-700 pb-2">
-                            <span data-i18n="sim_maintenance">メンテナンス費</span>
-                            <span class="text-2xl font-mono">¥100,000</span>
+                            <span data-i18n="sim_maintenance">Maintenance Cost</span>
+                            <span class="text-2xl font-mono" data-i18n="sim_val_maint_before">¥100,000 (PKR 180,000)</span>
                         </div>
                         <div class="pt-4 text-right">
-                            <span class="text-sm text-gray-400 block" data-i18n="sim_total">合計コスト</span>
-                            <span class="text-3xl font-bold">¥4,385,714</span>
+                            <span class="text-sm text-gray-400 block" data-i18n="sim_total">Total Cost</span>
+                            <span class="text-3xl font-bold" data-i18n="sim_val_total_before">¥4,385,714 (PKR 7,894,285)</span>
                         </div>
                     </div>
                 </div>
@@ -534,32 +533,32 @@
                 <!-- After -->
                 <div class="bg-gradient-to-br from-green-900 to-green-800 rounded-2xl p-8 border border-green-600 shadow-2xl relative transform md:-translate-y-4">
                     <div class="absolute -top-4 right-4 bg-yellow-400 text-black font-bold px-4 py-1 rounded-full text-sm shadow-lg">
-                        <span data-i18n="sim_save_label">年間 約65万円 お得！</span>
+                        <span data-i18n="sim_save_label">Save ~¥650,000 (PKR 1,170,000) / year!</span>
                     </div>
                     <h3 class="text-xl font-bold mb-6 flex items-center">
-                        <span data-i18n="sim_after">導入後</span> <i class="fas fa-check ml-2 text-green-400"></i>
+                        <span data-i18n="sim_after">After</span> <i class="fas fa-check ml-2 text-green-400"></i>
                     </h3>
                     <div class="space-y-4">
                         <div class="flex justify-between items-end border-b border-green-700/50 pb-2">
-                            <span data-i18n="sim_fuel_cost_down">年間燃料費 (-15%)</span>
-                            <span class="text-2xl font-mono text-yellow-300">¥3,642,857</span>
+                            <span data-i18n="sim_fuel_cost_down">Annual Fuel Cost (-15%)</span>
+                            <span class="text-2xl font-mono text-yellow-300" data-i18n="sim_val_fuel_after">¥3,642,857 (PKR 6,557,143)</span>
                         </div>
                         <div class="flex justify-between items-end border-b border-green-700/50 pb-2">
-                            <span data-i18n="sim_maintenance_cut">メンテナンス費 (削減)</span>
-                            <span class="text-2xl font-mono text-yellow-300">¥0</span>
+                            <span data-i18n="sim_maintenance_cut">Maintenance (Reduced)</span>
+                            <span class="text-2xl font-mono text-yellow-300" data-i18n="sim_val_maint_after">¥0 (PKR 0)</span>
                         </div>
                         <div class="flex justify-between items-end border-b border-green-700/50 pb-2">
-                            <span data-i18n="sim_product_cost">Change Fuel代</span>
-                            <span class="text-xl font-mono text-white opacity-90" data-i18n="sim_product_cost_val">約 ¥85,000</span>
+                            <span data-i18n="sim_product_cost">Change Fuel Cost</span>
+                            <span class="text-xl font-mono text-white opacity-90" data-i18n="sim_val_product">Approx. ¥85,000 (PKR 153,000)</span>
                         </div>
                         <div class="pt-4 text-right">
-                            <span class="text-sm text-green-200 block" data-i18n="sim_total">合計コスト</span>
-                            <span class="text-4xl font-bold text-white">¥3,727,857</span>
+                            <span class="text-sm text-green-200 block" data-i18n="sim_total">Total Cost</span>
+                            <span class="text-4xl font-bold text-white" data-i18n="sim_val_total_after">¥3,727,857 (PKR 6,710,143)</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <p class="text-center text-xs text-gray-500 mt-8" data-i18n="sim_note">※ 燃費3.5km/L、燃料単価150円/L、燃費改善率15%で試算。効果は車種や走行条件により異なります。</p>
+            <p class="text-center text-xs text-gray-500 mt-8" data-i18n="sim_note">*Calculated based on 3.5km/L, ¥150/L, and 15% improvement. Results may vary depending on vehicle and conditions.</p>
         </div>
     </section>
 
@@ -567,8 +566,8 @@
     <section id="products" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-900" data-i18n="prod_title">製品ラインナップ</h2>
-                <p class="mt-4 text-gray-600" data-i18n="prod_subtitle">用途に合わせて最適な製品をお選びください</p>
+                <h2 class="text-3xl font-bold text-gray-900" data-i18n="prod_title">Product Lineup</h2>
+                <p class="mt-4 text-gray-600" data-i18n="prod_subtitle">Choose the product that fits your needs</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -579,14 +578,14 @@
                         <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition duration-300"></div>
                     </div>
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="prod_1_name">ガソリン用</h3>
-                        <p class="text-sm text-orange-600 font-bold mb-4" data-i18n="prod_1_target">乗用車 / バイク / ハイブリッド車</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="prod_1_name">For Gasoline</h3>
+                        <p class="text-sm text-orange-600 font-bold mb-4" data-i18n="prod_1_target">Cars / Bikes / Hybrids</p>
                         <p class="text-gray-600 mb-6" data-i18n="prod_1_desc">
-                            レギュラー・ハイオク対応。街乗りから高速走行まで、力強い走りと燃費向上を両立します。
+                            Compatible with Regular & High Octane. Balances powerful driving and fuel efficiency from city to highway.
                         </p>
                         <ul class="text-sm text-gray-500 space-y-2 mb-6">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i><span data-i18n="prod_capacity">容量</span>: 100ml / 1L</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i><span data-i18n="prod_ratio">添加率</span>: 0.01% - 0.03%</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i><span data-i18n="prod_capacity">Capacity</span>: 100ml / 1L</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i><span data-i18n="prod_ratio">Ratio</span>: 0.01% - 0.03%</li>
                         </ul>
                     </div>
                 </div>
@@ -598,14 +597,14 @@
                         <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition duration-300"></div>
                     </div>
                     <div class="p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="prod_2_name">軽油・重油・灯油用</h3>
-                        <p class="text-sm text-blue-600 font-bold mb-4" data-i18n="prod_2_target">トラック / 重機 / ボイラー / 船舶</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="prod_2_name">For Diesel / Heavy Oil</h3>
+                        <p class="text-sm text-blue-600 font-bold mb-4" data-i18n="prod_2_target">Trucks / Machinery / Boilers / Ships</p>
                         <p class="text-gray-600 mb-6" data-i18n="prod_2_desc">
-                            ディーゼルエンジンやボイラーに最適。黒煙（PM）の劇的な削減と、燃焼効率の改善を実現します。
+                            Ideal for diesel engines and boilers. Drastically reduces black smoke (PM) and improves combustion efficiency.
                         </p>
                         <ul class="text-sm text-gray-500 space-y-2 mb-6">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i><span data-i18n="prod_capacity">容量</span>: 100ml / 1L / 18L</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i><span data-i18n="prod_ratio">添加率</span>: 0.01% - 0.05%</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i><span data-i18n="prod_capacity">Capacity</span>: 100ml / 1L / 18L</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i><span data-i18n="prod_ratio">Ratio</span>: 0.01% - 0.05%</li>
                         </ul>
                     </div>
                 </div>
@@ -623,8 +622,7 @@
                         <span class="font-bold text-2xl tracking-tighter">Change<span class="text-green-500">Fuel</span></span>
                     </div>
                     <p class="text-gray-400 mb-6" data-i18n="footer_desc">
-                        特許技術で燃料の常識を変える。<br>
-                        環境と経済の両立を目指す、次世代燃料添加剤。
+                        Changing fuel standards with patented technology.<br>Next-gen additive for both ecology and economy.
                     </p>
                     <div class="space-y-4">
                         <div class="text-gray-100 font-bold text-lg mb-2">
@@ -632,7 +630,7 @@
                         </div>
                         <div class="flex items-center text-gray-300">
                             <i class="fas fa-phone w-6 text-green-500"></i>
-                            <span data-i18n="footer_phone">050-3569-0327 (平日 9:00-18:00)</span>
+                            <span data-i18n="footer_phone">050-3569-0327 (Mon-Fri 9:00-18:00)</span>
                         </div>
                         <div class="flex items-center text-gray-300">
                             <i class="fas fa-envelope w-6 text-green-500"></i>
@@ -640,31 +638,30 @@
                         </div>
                         <div class="flex items-start text-gray-300">
                             <i class="fas fa-map-marker-alt w-6 text-green-500 mt-1"></i>
-                            <span data-i18n="footer_address">〒160-0023<br>東京都新宿区西新宿3丁目3番13号<br>西新宿水間ビル2F</span>
+                            <span data-i18n="footer_address">Nishi-Shinjuku Mizuma Bldg. 2F,<br>3-3-13 Nishi-Shinjuku, Shinjuku-ku, Tokyo<br>160-0023 Japan</span>
                         </div>
                     </div>
                 </div>
                 <div class="bg-gray-800 p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-4" data-i18n="contact_title">お問い合わせ・資料請求</h3>
+                    <h3 class="text-xl font-bold mb-4" data-i18n="contact_title">Contact Us</h3>
                     <form class="space-y-4" onsubmit="event.preventDefault(); alert('デモサイトのため送信されません');">
                         <div>
-                            <input type="text" data-placeholder-i18n="contact_name_ph" placeholder="会社名 / お名前" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-green-500">
+                            <input type="text" data-placeholder-i18n="contact_name_ph" placeholder="Company / Name" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-green-500">
                         </div>
                         <div>
-                            <input type="email" data-placeholder-i18n="contact_email_ph" placeholder="メールアドレス" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-green-500">
+                            <input type="email" data-placeholder-i18n="contact_email_ph" placeholder="Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-green-500">
                         </div>
                         <div>
-                            <textarea rows="3" data-placeholder-i18n="contact_msg_ph" placeholder="お問い合わせ内容" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-green-500"></textarea>
+                            <textarea rows="3" data-placeholder-i18n="contact_msg_ph" placeholder="Message" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-green-500"></textarea>
                         </div>
                         <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition duration-200" data-i18n="contact_submit">
-                            送信する
+                            Send Message
                         </button>
                     </form>
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
                 <p>&copy; 2025 AWESOME LLC. / Change Fuel All Rights Reserved.</p>
-                <p class="mt-2 text-xs" data-i18n="footer_copyright">※このサイトはデモンストレーション用に作成されたモックアップです。</p>
             </div>
         </div>
     </footer>
@@ -675,9 +672,9 @@
         const noxChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['導入前', '導入後'],
+                labels: ['Before', 'After'],
                 datasets: [{
-                    label: 'NOx排出量 (光吸収係数)',
+                    label: 'NOx Emissions',
                     data: [0.025, 0.011],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.5)',
@@ -792,6 +789,10 @@
                 verif_title: "実証された確かな効果",
                 verif_desc: "第三者機関や実際の現場で検証されたデータが、Change Fuelの性能を証明しています。",
                 verif_nox_title: "NOx（窒素酸化物）削減効果",
+                verif_nox_desc_1: "日野製4tトラック（アドブルー搭載車）での検証結果。",
+                verif_nox_desc_2: "すでに浄化装置がついている車両でも、さらに50%以上の削減を確認。",
+                verif_nox_measurement: "光吸収係数(m⁻¹)による測定",
+                verif_nox_value: "0.025 &rarr; 0.011 (平均値)",
                 verif_eff_title: "燃費向上実績（抜粋）",
                 table_model: "車種",
                 table_before: "添加前",
@@ -831,18 +832,28 @@
                 visual_before_desc: "水分が大きく、不完全燃焼の原因に",
                 visual_after: "Change Fuel 添加後",
                 visual_after_desc: "水分が超微粒子化 + 気化爆発 = 完全燃焼へ",
+                mech_visual_fuel: "燃料",
+                mech_visual_fuel_inner: "Fuel",
+                mech_visual_water_large: "水分(大)",
+                mech_visual_result: "水分を包み込み超微細化",
                 sim_title: "驚きのコスト削減効果",
                 sim_subtitle: "大型トラック（年間10万km走行）の場合のシミュレーション",
                 sim_before: "導入前",
                 sim_fuel_cost: "年間燃料費",
                 sim_maintenance: "メンテナンス費",
                 sim_total: "合計コスト",
-                sim_save_label: "年間 約65万円 お得！",
+                sim_save_label: "年間 約65万円 (PKR 1,170,000) お得！",
                 sim_after: "導入後",
                 sim_fuel_cost_down: "年間燃料費 (-15%)",
                 sim_maintenance_cut: "メンテナンス費 (削減)",
                 sim_product_cost: "Change Fuel代",
-                sim_product_cost_val: "約 ¥85,000",
+                sim_val_fuel_before: "¥4,285,714 (PKR 7,714,285)",
+                sim_val_maint_before: "¥100,000 (PKR 180,000)",
+                sim_val_total_before: "¥4,385,714 (PKR 7,894,285)",
+                sim_val_fuel_after: "¥3,642,857 (PKR 6,557,143)",
+                sim_val_maint_after: "¥0 (PKR 0)",
+                sim_val_product: "約 ¥85,000 (PKR 153,000)",
+                sim_val_total_after: "¥3,727,857 (PKR 6,710,143)",
                 sim_note: "※ 燃費3.5km/L、燃料単価150円/L、燃費改善率15%で試算。効果は車種や走行条件により異なります。",
                 prod_title: "製品ラインナップ",
                 prod_subtitle: "用途に合わせて最適な製品をお選びください",
@@ -869,8 +880,7 @@
                 contact_name_ph: "会社名 / お名前",
                 contact_email_ph: "メールアドレス",
                 contact_msg_ph: "お問い合わせ内容",
-                contact_submit: "送信する",
-                footer_copyright: "※このサイトはデモンストレーション用に作成されたモックアップです。"
+                contact_submit: "送信する"
             },
             en: {
                 nav_features: "Features",
@@ -896,7 +906,7 @@
                 stat_co2: "CO2 Cut",
                 stat_add: "Add Only",
                 prob_title_1: "Are you facing",
-                prob_title_highlight: "these issues",
+                prob_title_highlight: " these issues",
                 prob_title_2: "?",
                 prob_desc: "For businesses struggling with rising fuel prices and environmental regulations.",
                 prob_1_title: "Rising Fuel Costs",
@@ -910,6 +920,10 @@
                 verif_title: "Proven Results",
                 verif_desc: "Data verified by third-party institutions and field tests prove the performance of Change Fuel.",
                 verif_nox_title: "NOx Reduction Effect",
+                verif_nox_desc_1: "Verification results using a Hino 4t truck (AdBlue equipped).",
+                verif_nox_desc_2: "Confirmed reduction of over 50% even in vehicles with existing purification systems.",
+                verif_nox_measurement: "Measured by light absorption coefficient (m⁻¹)",
+                verif_nox_value: "0.025 &rarr; 0.011 (Average)",
                 verif_eff_title: "Fuel Efficiency Improvements (Excerpt)",
                 table_model: "Vehicle Model",
                 table_before: "Before",
@@ -921,6 +935,7 @@
                 dl_btn_1: "Verification Data (JP)",
                 dl_btn_2: "Product Guide (JP)",
                 dl_btn_3: "English Guide (EN)",
+                dl_note: "",
                 yt_title: "Official YouTube Channel",
                 yt_desc: "We upload verification videos of CO/HC reduction, engine sound comparison, and more.",
                 yt_btn: "Visit Channel",
@@ -948,18 +963,28 @@
                 visual_before_desc: "Large water particles cause incomplete combustion.",
                 visual_after: "With Change Fuel",
                 visual_after_desc: "Nano-water + Vaporization Explosion = Complete Combustion.",
+                mech_visual_fuel: "Fuel",
+                mech_visual_fuel_inner: "Fuel",
+                mech_visual_water_large: "Water (Large)",
+                mech_visual_result: "Encapsulates water for ultra-atomization",
                 sim_title: "Amazing Cost Reduction",
                 sim_subtitle: "Simulation for a heavy-duty truck (100,000 km/year)",
                 sim_before: "Before",
                 sim_fuel_cost: "Annual Fuel Cost",
                 sim_maintenance: "Maintenance Cost",
                 sim_total: "Total Cost",
-                sim_save_label: "Save ~¥650,000 / year!",
+                sim_save_label: "Save ~¥650,000 (PKR 1,170,000) / year!",
                 sim_after: "After",
                 sim_fuel_cost_down: "Annual Fuel Cost (-15%)",
                 sim_maintenance_cut: "Maintenance (Reduced)",
                 sim_product_cost: "Change Fuel Cost",
-                sim_product_cost_val: "Approx. ¥85,000",
+                sim_val_fuel_before: "¥4,285,714 (PKR 7,714,285)",
+                sim_val_maint_before: "¥100,000 (PKR 180,000)",
+                sim_val_total_before: "¥4,385,714 (PKR 7,894,285)",
+                sim_val_fuel_after: "¥3,642,857 (PKR 6,557,143)",
+                sim_val_maint_after: "¥0 (PKR 0)",
+                sim_val_product: "Approx. ¥85,000 (PKR 153,000)",
+                sim_val_total_after: "¥3,727,857 (PKR 6,710,143)",
                 sim_note: "*Calculated based on 3.5km/L, ¥150/L, and 15% improvement. Results may vary depending on vehicle and conditions.",
                 prod_title: "Product Lineup",
                 prod_subtitle: "Choose the product that fits your needs",
@@ -986,8 +1011,7 @@
                 contact_name_ph: "Company / Name",
                 contact_email_ph: "Email Address",
                 contact_msg_ph: "Message",
-                contact_submit: "Send Message",
-                footer_copyright: "※This site is a mockup created for demonstration purposes."
+                contact_submit: "Send Message"
             }
         };
 
@@ -998,7 +1022,7 @@
             btn3: "changefuelen.pdf"            // English Guide
         };
 
-        let currentLang = 'ja';
+        let currentLang = 'en';
 
         function toggleLanguage() {
             currentLang = currentLang === 'ja' ? 'en' : 'ja';
@@ -1030,8 +1054,10 @@
             // Update Body Class for Fonts
             if (currentLang === 'en') {
                 document.body.classList.add('lang-en');
+                document.body.classList.remove('lang-jp');
             } else {
                 document.body.classList.remove('lang-en');
+                document.body.classList.add('lang-jp');
             }
             
             // Update Chart Labels
@@ -1049,7 +1075,8 @@
         }
 
         // Initial render
-        renderFuelTable('ja');
+        renderFuelTable('en');
+        updateContent(); // Ensure initial content matches currentLang
         
         // Set static download links
         document.getElementById('dl-btn-1').href = filePaths.btn1;
