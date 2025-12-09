@@ -110,7 +110,7 @@
             </div>
             <div class="flex w-full md:w-auto gap-2">
                 <a href="#verification" class="flex-1 md:flex-none bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 px-4 rounded-lg text-center transition duration-200 text-sm flex items-center justify-center gap-2">
-                    <i class="fas fa-file-download text-gray-600"></i> <span data-i18n="eb_dl">資料ダウンロード</span>
+                    <i class="fas fa-file-pdf text-gray-600"></i> <span data-i18n="eb_dl">資料を見る</span>
                 </a>
                 <a href="#contact" class="flex-1 md:flex-none bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-6 rounded-lg text-center transition duration-200 text-sm flex items-center justify-center gap-2 shadow-md">
                     <i class="fas fa-envelope"></i> <span data-i18n="eb_contact">お問い合わせ</span>
@@ -299,17 +299,16 @@
                     CO・HC・NOx・PM削減の検証結果詳細や、より多くの車種での燃費向上データ、メカニズムの解説資料をご覧いただけます。
                 </p>
                 <div class="flex flex-col md:flex-row justify-center gap-4 flex-wrap">
-                    <a href="#" id="dl-btn-1" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-bold transition flex items-center justify-center gap-2 group w-full md:w-auto" download>
-                        <i class="fas fa-download group-hover:animate-bounce"></i> <span data-i18n="dl_btn_1">検証結果データ(JP)</span>
+                    <a href="#" id="dl-btn-1" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-bold transition flex items-center justify-center gap-2 group w-full md:w-auto" target="_blank">
+                        <i class="fas fa-eye group-hover:scale-110 transition-transform"></i> <span data-i18n="dl_btn_1">検証結果データ(JP)</span>
                     </a>
-                    <a href="#" id="dl-btn-2" class="bg-gray-600 hover:bg-gray-500 text-white px-6 py-3 rounded-full font-bold transition flex items-center justify-center gap-2 group w-full md:w-auto" download>
-                        <i class="fas fa-download group-hover:animate-bounce"></i> <span data-i18n="dl_btn_2">製品説明資料(JP)</span>
+                    <a href="#" id="dl-btn-2" class="bg-gray-600 hover:bg-gray-500 text-white px-6 py-3 rounded-full font-bold transition flex items-center justify-center gap-2 group w-full md:w-auto" target="_blank">
+                        <i class="fas fa-eye group-hover:scale-110 transition-transform"></i> <span data-i18n="dl_btn_2">製品説明資料(JP)</span>
                     </a>
-                    <a href="#" id="dl-btn-3" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-full font-bold transition flex items-center justify-center gap-2 group w-full md:w-auto" download>
-                        <i class="fas fa-download group-hover:animate-bounce"></i> <span data-i18n="dl_btn_3">English Guide (EN)</span>
+                    <a href="#" id="dl-btn-3" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-full font-bold transition flex items-center justify-center gap-2 group w-full md:w-auto" target="_blank">
+                        <i class="fas fa-eye group-hover:scale-110 transition-transform"></i> <span data-i18n="dl_btn_3">English Guide (EN)</span>
                     </a>
                 </div>
-                <p class="text-xs text-gray-500 mt-4 opacity-50" data-i18n="dl_note">※実際の環境ではPDFファイルの配置が必要です</p>
             </div>
         </div>
     </section>
@@ -576,7 +575,7 @@
                 <!-- Product 1 -->
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition duration-300">
                     <div class="h-64 bg-gray-100 relative overflow-hidden group">
-                        <img src="assets/changefuelgasoline.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=Gasoline+Product';" alt="Change Fuel Gasoline" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        <img src="changefuelgasoline.jpg" alt="Change Fuel Gasoline" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                         <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition duration-300"></div>
                     </div>
                     <div class="p-8">
@@ -595,7 +594,7 @@
                 <!-- Product 2 -->
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition duration-300">
                     <div class="h-64 bg-gray-100 relative overflow-hidden group">
-                        <img src="assets/changefueldiesel.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=Diesel+Product';" alt="Change Fuel Diesel" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        <img src="changefueldiesel.jpg" alt="Change Fuel Diesel" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                         <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition duration-300"></div>
                     </div>
                     <div class="p-8">
@@ -765,7 +764,7 @@
                 nav_products: "製品一覧",
                 nav_contact: "お問い合わせ",
                 eb_slogan: "燃費向上・コスト削減の決定版",
-                eb_dl: "資料ダウンロード",
+                eb_dl: "資料を見る",
                 eb_contact: "お問い合わせ",
                 hero_badge: "特許技術取得済み",
                 hero_title_1: "燃料コストを削減し、",
@@ -804,7 +803,7 @@
                 dl_btn_1: "検証結果データ(JP)",
                 dl_btn_2: "製品説明資料(JP)",
                 dl_btn_3: "English Guide (EN)",
-                dl_note: "※実際の環境ではPDFファイルの配置が必要です",
+                dl_note: "",
                 yt_title: "公式YouTubeチャンネル",
                 yt_desc: "黒煙除去の瞬間や、エンジン音の変化など、実際の検証動画を多数公開しています。",
                 yt_btn: "チャンネルを見る",
@@ -883,7 +882,7 @@
                 nav_products: "Products",
                 nav_contact: "Contact",
                 eb_slogan: "The Definitive Solution for Fuel Efficiency",
-                eb_dl: "Download Guide",
+                eb_dl: "See Reports",
                 eb_contact: "Contact Us",
                 hero_badge: "Patented Technology",
                 hero_title_1: "Reduce Fuel Costs,",
@@ -922,7 +921,6 @@
                 dl_btn_1: "Verification Data (JP)",
                 dl_btn_2: "Product Guide (JP)",
                 dl_btn_3: "English Guide (EN)",
-                dl_note: "* Please upload PDF files to server in actual environment",
                 yt_title: "Official YouTube Channel",
                 yt_desc: "We upload verification videos of CO/HC reduction, engine sound comparison, and more.",
                 yt_btn: "Visit Channel",
@@ -995,9 +993,9 @@
 
         // Static File Paths (Does not change with language)
         const filePaths = {
-            btn1: "assets/changefueltest.pdf", // 検証結果（JP）
-            btn2: "assets/changefuelexplain.pdf",       // 説明資料（JP）
-            btn3: "assets/changefuelen.pdf"            // English Guide
+            btn1: "changefueltest.pdf", // 検証結果（JP）
+            btn2: "changefuelexplain.pdf",       // 説明資料（JP）
+            btn3: "changefuelen.pdf"            // English Guide
         };
 
         let currentLang = 'ja';
