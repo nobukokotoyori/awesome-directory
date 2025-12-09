@@ -1,1 +1,1 @@
-# awesome-directory
+# awesome-directory.com
