@@ -1,0 +1,562 @@
+import React, { useState } from 'react';
+import { Play, Globe, ShoppingBag, ShieldCheck, AlertTriangle, Menu, X, ChevronRight, Star, Mail, Phone, MapPin } from 'lucide-react';
+
+const App = () => {
+  const [lang, setLang] = useState('en');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Exchange rate constant
+  const RATE = 150;
+
+  // Content Data Dictionary
+  const content = {
+    en: {
+      alert: "PROFESSIONAL USE ONLY: These products contain high-concentration ingredients designed for authorized salons and clinics.",
+      nav: {
+        home: "Home",
+        skincare: "Skincare",
+        supplements: "Supplements",
+        education: "Education",
+        contact: "Contact",
+      },
+      hero: {
+        title: "Not for Everyone. Designed for Professionals.",
+        subtitle: "Backed by 30 years of Japanese expertise in pharmacies and clinics. Now available globally.",
+        cta: "Explore Collection",
+        videoCaption: "Discover the philosophy behind our formulations."
+      },
+      badges: {
+        salon: "Salon Exclusive",
+        clinic: "Clinic Quality",
+        esthetician: "Esthetician's Choice"
+      },
+      skincare: {
+        title: "The Refine Series",
+        subtitle: "Scientific Repair",
+        videoTitle: "The MINTS Experiment",
+        videoDesc: "We verify every reaction. See the science behind the safety.",
+        products: [
+          {
+            name: "Refine Active VC",
+            tag: "For Acne & Skin Troubles",
+            desc: "Professional balance of Horse Placenta & Ascorbic Acid. Instantly soothes inflammation and adjusts skin pH.",
+            priceJpy: 10000,
+            priceUsd: 67
+          },
+          {
+            name: "Refine ELC Essence",
+            tag: "For Whitening & Dark Spots",
+            desc: "A salon-grade formula with Arbutin & SymWhite. Suppresses melanin safely without strong irritation.",
+            priceJpy: 12800,
+            priceUsd: 85
+          },
+          {
+            name: "Refine LUF Essence",
+            tag: "For Anti-Aging (Wrinkles)",
+            desc: "Contains Argireline ('Paint-on Botox') & Syn-Ake. Targets deep wrinkles and sagging in mature skin.",
+            priceJpy: 12000,
+            priceUsd: 80
+          }
+        ]
+      },
+      supplements: {
+        title: "Inner Science",
+        reuni: {
+          name: "Re:UNI (The Internal Factory)",
+          desc: "Patented Sparassis Crispa grown on coffee beans. Take before dinner to optimize your 'internal factory' (sleep & metabolism).",
+          video1: "Why Re:UNI is Recommended",
+          video2: "Eating by the Clock",
+          priceJpy: 8000,
+          priceUsd: 53
+        },
+        m18y6: {
+          name: "M18Y6 (Mulberry Cleanse)",
+          desc: "Mulberry Leaves + Yeast. A matcha-style drink that blocks sugar/fat absorption. Check your health using the Bristol Stool Scale.",
+          video1: "M18Y6 Overview",
+          video2: "Women & Fat",
+          priceJpy: 2800,
+          priceUsd: 19
+        }
+      },
+      special: {
+        title: "Special & Body Care",
+        products: [
+          { name: "Neck & Décolleté Cream", desc: "Rare specialized cream for neck wrinkles with Progerin.", priceJpy: 8800, priceUsd: 59 },
+          { name: "TB Platinum Essence", desc: "28-day intensive recovery. Portable single-use sheets.", priceJpy: 9000, priceUsd: 60 },
+          { name: "TB Platinum F Cream", desc: "Pro-Size (270g). Softens hardened fat for slimming massage.", priceJpy: 16000, priceUsd: 107 },
+          { name: "TB Sunscreen", desc: "SPF50 PA++. Non-chemical, safe for post-treatment skin.", priceJpy: 3900, priceUsd: 26 },
+          { name: "Pre-Lotion", desc: "Prepares skin to absorb serum by removing oil barriers.", priceJpy: 4800, priceUsd: 32 },
+        ]
+      },
+      education: {
+        title: "We Don't Just Sell. We Educate.",
+        desc: "We provide full educational support for salons using our products.",
+        cta: "Visit YouTube Channel 'Mihogaku Service'"
+      },
+      footer: {
+        brand: "MIHOGAKU",
+        brandSub: "LLC. JAPAN",
+        sales: "AWESOME LLC.",
+        address: ["Nishi-Shinjuku Mizuma Bldg. 2F,", "3-3-13 Nishi-Shinjuku, Shinjuku-ku, Tokyo", "160-0023 Japan"],
+        phone: "050-3569-0327 (Mon-Fri 9:00-18:00)",
+        email: "info@awesome-directory.com",
+        disclaimer: "All prices are converted from JPY at a rate of $1 = ¥150. Tax is excluded for international shipping.",
+        rights: "All Rights Reserved."
+      }
+    },
+    jp: {
+      alert: "サロン専売品：本製品はプロ仕様の高濃度成分を使用しています。正規取扱店および本サイト限定販売です。",
+      nav: {
+        home: "ホーム",
+        skincare: "スキンケア",
+        supplements: "サプリメント",
+        education: "教育・動画",
+        contact: "お問い合わせ",
+      },
+      hero: {
+        title: "すべての人にではなく、プロフェッショナルのために。",
+        subtitle: "薬局・クリニックで30年の実績。日本の「未保学」が届けるプロフェッショナル処方。",
+        cta: "製品一覧を見る",
+        videoCaption: "私たちの処方哲学をご覧ください。"
+      },
+      badges: {
+        salon: "サロン専売品",
+        clinic: "クリニック品質",
+        esthetician: "エステティシャン愛用品"
+      },
+      skincare: {
+        title: "リファインシリーズ",
+        subtitle: "科学的リペア",
+        videoTitle: "The MINTS 実験",
+        videoDesc: "私たちはすべての反応を検証しています。安全の裏側にある科学をご覧ください。",
+        products: [
+          {
+            name: "Refine Active VC",
+            tag: "ニキビ・肌トラブル用",
+            desc: "馬プラセンタとアスコルビン酸を高配合。炎症を鎮め、pHを整えるプロ用美容液。",
+            priceJpy: 10000,
+            priceUsd: 67
+          },
+          {
+            name: "Refine ELC Essence",
+            tag: "美白・黒ずみケア用",
+            desc: "アルブチン、シムホワイト配合。メラニン生成を抑えるサロン仕様の美白エッセンス。",
+            priceJpy: 12800,
+            priceUsd: 85
+          },
+          {
+            name: "Refine LUF Essence",
+            tag: "シワ・たるみケア用",
+            desc: "「塗るボトックス」成分アルジレリンとシンエイク配合。深いシワとたるみにアプローチ。",
+            priceJpy: 12000,
+            priceUsd: 80
+          }
+        ]
+      },
+      supplements: {
+        title: "インナーサイエンス",
+        reuni: {
+          name: "Re:UNI (体内工場)",
+          desc: "コーヒー豆で育てた特許取得ハナビラタケ。夕食前に飲むことで、睡眠と代謝のリズムを整えます。",
+          video1: "Re:UNIの推奨理由",
+          video2: "時間栄養学",
+          priceJpy: 8000,
+          priceUsd: 53
+        },
+        m18y6: {
+          name: "M18Y6 (桑の葉クレンズ)",
+          desc: "桑の葉と酵母の力。食事の糖と脂をブロックし、腸内環境を整える抹茶味のドリンク。",
+          video1: "M18Y6 概要",
+          video2: "女性と脂肪",
+          priceJpy: 2800,
+          priceUsd: 19
+        }
+      },
+      special: {
+        title: "スペシャル＆ボディケア",
+        products: [
+          { name: "Neck & Décolleté Cream", desc: "首のシワ専用の希少クリーム。プロジェリン配合。", priceJpy: 8800, priceUsd: 59 },
+          { name: "TB Platinum Essence", desc: "28日間の集中ケア。持ち運べる使い切り高濃度美容液。", priceJpy: 9000, priceUsd: 60 },
+          { name: "TB Platinum F Cream", desc: "【業務用大容量(270g)】固まった脂肪をほぐすスリミングクリーム。", priceJpy: 16000, priceUsd: 107 },
+          { name: "TB Sunscreen", desc: "紫外線吸収剤不使用。施術後の敏感な肌にも。", priceJpy: 3900, priceUsd: 26 },
+          { name: "Pre-Lotion", desc: "美容液の浸透を助ける、導入用プレローション。", priceJpy: 4800, priceUsd: 32 },
+        ]
+      },
+      education: {
+        title: "私たちは商品を売るだけでなく、教育も提供します。",
+        desc: "YouTubeチャンネルで理論を学んでください。",
+        cta: "YouTubeチャンネル「未保学」を見る"
+      },
+      footer: {
+        brand: "合同会社 未保学",
+        brandSub: "LLC. JAPAN",
+        sales: "AWESOME LLC.",
+        address: ["〒160-0023", "東京都新宿区西新宿3-3-13", "西新宿水間ビル2F"],
+        phone: "050-3569-0327 (月-金 9:00-18:00)",
+        email: "info@awesome-directory.com",
+        disclaimer: "価格は1ドル150円換算の参考価格です。海外発送のため日本の消費税は免税となります。",
+        rights: "All Rights Reserved."
+      }
+    }
+  };
+
+  const t = content[lang];
+
+  // Helper Components
+  const SectionTitle = ({ title, subtitle, badge }) => (
+    <div className="text-center mb-12">
+      {badge && (
+        <span className="inline-flex items-center px-3 py-1 mb-4 text-xs font-bold tracking-wider text-red-700 uppercase bg-red-100 border border-red-200 rounded-full">
+          <ShieldCheck className="w-4 h-4 mr-1" />
+          {badge}
+        </span>
+      )}
+      <h2 className="text-3xl md:text-4xl font-serif text-gray-900 mb-2">{title}</h2>
+      {subtitle && <p className="text-gray-500 font-light tracking-widest uppercase">{subtitle}</p>}
+    </div>
+  );
+
+  const PriceTag = ({ usd, jpy }) => (
+    <div className="flex items-baseline space-x-2 mt-4">
+      <span className="text-2xl font-bold text-gray-900">${usd.toFixed(2)}</span>
+      <span className="text-sm text-gray-500">(¥{jpy.toLocaleString()})</span>
+    </div>
+  );
+
+  const VideoEmbed = ({ videoId, title }) => (
+    <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg bg-black">
+      <iframe
+        className="absolute top-0 left-0 w-full h-full"
+        src={`https://www.youtube.com/embed/${videoId}`}
+        title={title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    </div>
+  );
+
+  return (
+    <div className="font-sans text-gray-800 bg-gray-50 min-h-screen">
+      {/* 1. Global Alert (Updated: Dark gray, Non-sticky) */}
+      <div className="bg-gray-900 text-gray-300 text-xs md:text-sm text-center py-3 px-4 relative flex items-center justify-center">
+        <ShieldCheck className="w-4 h-4 mr-2 flex-shrink-0 text-yellow-500" />
+        <span className="font-medium tracking-wide">{t.alert}</span>
+      </div>
+
+      {/* 2. Header */}
+      <header className="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            {/* Logo */}
+            <div className="flex items-center">
+              <div className="text-2xl font-serif font-bold tracking-tight text-gray-900">
+                MIHOGAKU
+                <span className="text-xs block font-sans font-light text-gray-500 tracking-widest">SCIENCE OF BEAUTY</span>
+              </div>
+            </div>
+
+            {/* Desktop Nav */}
+            <nav className="hidden md:flex space-x-8">
+              {Object.values(t.nav).map((item) => (
+                <a key={item} href="#" className="text-gray-600 hover:text-black hover:underline underline-offset-4 text-sm font-medium transition-colors">
+                  {item}
+                </a>
+              ))}
+            </nav>
+
+            {/* Language Switcher */}
+            <div className="flex items-center space-x-4">
+              <button 
+                onClick={() => setLang(lang === 'en' ? 'jp' : 'en')}
+                className="flex items-center px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-semibold transition-colors"
+              >
+                <Globe className="w-4 h-4 mr-2" />
+                {lang === 'en' ? '🇺🇸 EN' : '🇯🇵 JP'}
+              </button>
+              
+              {/* Mobile Menu Button */}
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-2 text-gray-600">
+                {isMenuOpen ? <X /> : <Menu />}
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* 3. Hero Section */}
+      <section className="relative bg-white overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-10">
+            {/* Abstract Background representing Sakura & Molecules */}
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <pattern id="pattern" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <circle cx="20" cy="20" r="2" fill="#000" />
+                    <line x1="20" y1="20" x2="80" y2="80" stroke="#000" strokeWidth="0.5" />
+                    <circle cx="80" cy="80" r="2" fill="#000" />
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#pattern)" />
+            </svg>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+            <div className="mb-12 lg:mb-0">
+              <div className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-yellow-800 uppercase bg-yellow-100 rounded-full">
+                Japan Quality
+              </div>
+              <h1 className="text-4xl lg:text-5xl font-serif font-bold text-gray-900 leading-tight mb-6">
+                {t.hero.title}
+              </h1>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                {t.hero.subtitle}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                 <button className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-black hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl">
+                  {t.hero.cta}
+                  <ChevronRight className="ml-2 w-5 h-5" />
+                </button>
+              </div>
+            </div>
+            
+            {/* Featured Video: Blueprint */}
+            <div className="relative">
+                <VideoEmbed videoId="7K5l48uO_eU" title="Your Personal Health Blueprint" />
+                <p className="text-sm text-center mt-3 text-gray-500 italic flex items-center justify-center">
+                    <Play className="w-3 h-3 mr-1" />
+                    {t.hero.videoCaption}
+                </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Skincare Section */}
+      <section className="py-20 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionTitle 
+            title={t.skincare.title} 
+            subtitle={t.skincare.subtitle} 
+            badge={t.badges.salon} 
+          />
+
+          {/* Intro Video: Experiment */}
+          <div className="max-w-4xl mx-auto mb-16 bg-gray-900 rounded-xl p-6 md:p-8 text-white shadow-2xl">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 className="text-2xl font-serif mb-2 text-white">{t.skincare.videoTitle}</h3>
+                    <p className="text-gray-300 mb-4">{t.skincare.videoDesc}</p>
+                    <div className="flex items-center space-x-2 text-xs text-yellow-400">
+                        <Star className="w-4 h-4 fill-current" />
+                        <span>Scientific Verification</span>
+                    </div>
+                </div>
+                <div className="rounded-lg overflow-hidden border border-gray-700">
+                   <VideoEmbed videoId="30yJ5qf_tck" title="The MINTS Experiment" />
+                </div>
+            </div>
+          </div>
+
+          {/* Product Grid */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {t.skincare.products.map((product, idx) => (
+              <div key={idx} className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow border border-gray-200 flex flex-col">
+                <div className="aspect-[3/4] bg-white rounded-lg mb-6 flex items-center justify-center relative overflow-hidden group">
+                  {/* Placeholder for Product Image */}
+                  <div className="text-gray-300 group-hover:scale-105 transition-transform duration-500">
+                    [Image of {product.name}]
+                  </div>
+                  <div className="absolute top-2 right-2 bg-black text-white text-xs px-2 py-1 font-bold">PRO</div>
+                </div>
+                <div className="flex-1">
+                    <span className="text-xs font-bold text-blue-600 uppercase tracking-wide">{product.tag}</span>
+                    <h3 className="text-xl font-bold text-gray-900 mt-2 mb-2">{product.name}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">{product.desc}</p>
+                </div>
+                <div className="mt-4 border-t border-gray-200 pt-4">
+                    <PriceTag usd={product.priceUsd} jpy={product.priceJpy} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Supplements Section */}
+      <section className="py-20 bg-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionTitle 
+            title={t.supplements.title} 
+            badge={t.badges.clinic} 
+          />
+
+          {/* Re:UNI */}
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-12">
+            <div className="lg:grid lg:grid-cols-2">
+                <div className="p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{t.supplements.reuni.name}</h3>
+                    <p className="text-gray-600 mb-6">{t.supplements.reuni.desc}</p>
+                    <PriceTag usd={t.supplements.reuni.priceUsd} jpy={t.supplements.reuni.priceJpy} />
+                    
+                    <div className="mt-8 grid grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                            <span className="text-xs font-bold text-gray-500 uppercase block">Context Video 1</span>
+                            <div className="rounded overflow-hidden shadow">
+                                <VideoEmbed videoId="NqgH4D8Cg7U" title="Why Re:UNI" />
+                            </div>
+                        </div>
+                        <div className="space-y-2">
+                            <span className="text-xs font-bold text-gray-500 uppercase block">Context Video 2</span>
+                            <div className="rounded overflow-hidden shadow">
+                                <VideoEmbed videoId="L9p6-3A1g8U" title="Eating by the Clock" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="bg-gray-200 flex items-center justify-center min-h-[300px] order-1 lg:order-2">
+                    <div className="text-gray-400 font-serif text-lg"></div>
+                </div>
+            </div>
+          </div>
+
+          {/* M18Y6 */}
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+             <div className="lg:grid lg:grid-cols-2">
+                <div className="bg-green-50 flex items-center justify-center min-h-[300px]">
+                    <div className="text-green-800 font-serif text-lg"></div>
+                </div>
+                <div className="p-8 lg:p-12 flex flex-col justify-center">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{t.supplements.m18y6.name}</h3>
+                    <p className="text-gray-600 mb-6">{t.supplements.m18y6.desc}</p>
+                    <PriceTag usd={t.supplements.m18y6.priceUsd} jpy={t.supplements.m18y6.priceJpy} />
+                    
+                    <div className="mt-8 grid grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                            <span className="text-xs font-bold text-gray-500 uppercase block">Context Video 1</span>
+                            <div className="rounded overflow-hidden shadow">
+                                <VideoEmbed videoId="5q4e5r6t7y8" title="M18Y6 Overview" /> {/* Placeholder ID for spec */}
+                            </div>
+                        </div>
+                        <div className="space-y-2">
+                            <span className="text-xs font-bold text-gray-500 uppercase block">Context Video 2</span>
+                            <div className="rounded overflow-hidden shadow">
+                                <VideoEmbed videoId="W2b3x4c5v6" title="Women & Fat" /> {/* Placeholder ID for spec */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Special Care Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionTitle 
+            title={t.special.title} 
+            badge={t.badges.esthetician} 
+          />
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {t.special.products.map((product, idx) => (
+               <div key={idx} className="bg-white border border-gray-100 shadow-sm p-6 rounded-lg hover:border-gray-300 transition-colors">
+                 <div className="flex justify-between items-start mb-4">
+                    <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-xs text-gray-400">IMG</div>
+                    <span className="bg-gray-900 text-white text-[10px] px-2 py-0.5 rounded">SPECIAL</span>
+                 </div>
+                 <h4 className="font-bold text-lg mb-2">{product.name}</h4>
+                 <p className="text-sm text-gray-600 mb-4 h-10">{product.desc}</p>
+                 <PriceTag usd={product.priceUsd} jpy={product.priceJpy} />
+               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Education Section */}
+      <section className="py-20 bg-black text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">{t.education.title}</h2>
+          <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">{t.education.desc}</p>
+          
+          {/* Video Grid Visual */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 opacity-50 mb-12">
+            {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="aspect-video bg-gray-800 rounded flex items-center justify-center">
+                    <Play className="w-8 h-8 text-white/50" />
+                </div>
+            ))}
+          </div>
+
+          <a 
+            href="https://www.youtube.com/playlist?list=PLh985viuWrFQ7fjREAgbs1KzcgLyWowQN" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-4 bg-red-600 hover:bg-red-700 text-white rounded-full text-lg font-bold transition-transform hover:scale-105"
+          >
+            <Play className="w-5 h-5 mr-2 fill-current" />
+            {t.education.cta}
+          </a>
+        </div>
+      </section>
+
+      {/* 8. Footer */}
+      <footer className="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-8">
+            
+            {/* Brand Info */}
+            <div className="col-span-1">
+                <span className="text-2xl font-serif text-white font-bold tracking-tight">{t.footer.brand}</span>
+                <p className="text-xs mt-1 text-gray-500">{t.footer.brandSub}</p>
+                <p className="text-xs mt-4 leading-relaxed">{t.footer.disclaimer}</p>
+            </div>
+
+            {/* Sales / Distributor Info */}
+            <div className="col-span-1">
+                <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">Sales & Distribution</h4>
+                <div className="text-sm space-y-3">
+                    <p className="font-bold text-white">{t.footer.sales}</p>
+                    <div className="flex items-start">
+                        <MapPin className="w-4 h-4 mr-2 mt-1 flex-shrink-0" />
+                        <div>
+                            {t.footer.address.map((line, i) => (
+                                <span key={i} className="block">{line}</span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Contact Info */}
+            <div className="col-span-1">
+                <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">Contact</h4>
+                <div className="text-sm space-y-3">
+                    <div className="flex items-center">
+                        <Phone className="w-4 h-4 mr-2" />
+                        <span>{t.footer.phone}</span>
+                    </div>
+                    <div className="flex items-center">
+                        <Mail className="w-4 h-4 mr-2" />
+                        <a href={`mailto:${t.footer.email}`} className="hover:text-white transition-colors">
+                            {t.footer.email}
+                        </a>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
+            <div className="flex space-x-6 mb-4 md:mb-0">
+                <a href="#" className="hover:text-white transition-colors">Skincare</a>
+                <a href="#" className="hover:text-white transition-colors">Supplements</a>
+                <a href="#" className="hover:text-white transition-colors">Education</a>
+            </div>
+            <p>&copy; 2025 {t.footer.sales} {t.footer.rights}</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
